@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syxpro V2 Official | Mobile Optimization</title>
+    <style>
+        /* --- ESTILO BASE --- */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* --- SPLASH SCREEN --- */
+        #splash {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            z-index: 10000;
+        }
+        .loader-bar { width: 250px; height: 4px; background: #111; margin-top: 20px; border-radius: 10px; overflow: hidden; border: 1px solid #333; }
+        .fill { width: 0%; height: 100%; background: #f00; box-shadow: 0 0 15px #f00; animation: fillBar 2.5s forwards; }
+        @keyframes fillBar { 100% { width: 100%; } }
+
+        /* --- CONTENIDO PRINCIPAL --- */
+        #main { padding: 20px; padding-bottom: 80px; opacity: 0; transition: opacity 1s; }
+        header { border-bottom: 2px solid #f00; padding: 20px; margin-bottom: 20px; }
+        h1 { color: #f00; font-size: 2.5em; letter-spacing: 5px; text-shadow: 0 0 15px #f00; margin: 0; text-transform: uppercase; font-weight: bold; }
+        .user-live { color: #0f0; font-size: 13px; font-weight: bold; margin: 10px 0; }
+
+        /* --- CARDS NEÓN --- */
+        .card {
+            background: #080808;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .yellow { border-left: 5px solid #ff0; color: #ff0; animation: blink 1.8s infinite; }
+        .magenta { border-left: 5px solid #f0f; color: #f0f; }
+        .cyan { border-left: 5px solid #00d9ff; color: #00d9ff; }
+        .orange { border-left: 5px solid #ff6a00; color: #ff6a00; }
+        .gold { border-left: 5px solid #ffcc00; color: #ffcc00; }
+
+        /* --- LISTAS --- */
+        .fix-list { list-style: none; padding: 0; margin: 10px 0; font-size: 13px; color: #ccc; }
+        .fix-list li { margin-bottom: 8px; border-bottom: 1px solid #111; padding-bottom: 4px; }
+        .fix-tag { color: #f00; font-weight: bold; }
+
+        /* --- BOTONES --- */
+        .bold-text { font-weight: bold; }
+        .step { font-weight: bold; color: #ffaa00; }
+        .btn-main {
+            display: block;
+            background: #f00;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            margin-top: 30px;
+            text-transform: uppercase;
+        }
+        .btn-donar {
+            display: block;
+            background: linear-gradient(45deg, #ffcc00, #ff9900);
+            color: #000;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+        }
+        .btn-whatsapp {
+            display: block;
+            background: #25d366;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+        }
+        .btn-bug {
+            display: block;
+            background: #00d9ff;
+            color: #000;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .btn-shortcuts {
+            display: block;
+            background: #ff6a00;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(255, 106, 0, 0.4);
+        }
+        .heart { color: #f00; animation: pulse 1.5s infinite; display: inline-block; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+    </style>
+</head>
+<body>
+
+    <div id="splash">
+        <div style="color: #f00; letter-spacing: 3px; font-weight: bold;">SYXPRO </div>
+        <div class="loader-bar"><div class="fill"></div></div>
+    </div>
+
+    <div id="main">
+        <header>
+            <h1>SYXPRO V2</h1>
+            <div class="user-live">● <span id="count">184</span> USUARIOS  </div>
+            <div style="color: #aaa; font-size: 11px;">SYXPRO | BY: @Jerzn67</div>
+        </header>
+
+        <div class="card orange">
+            <h3>⚡ DOWNLOAD SHORTCUTS</h3>
+            <p style="font-size: 13px; color: #ccc;">Obtén los mejores atajos para automatizar tu jugabilidad, recuerda que lo tienes que abrir desde Syxpro.</p>
+            <a href=https://www.mediafire.com/file/lh2kk355r9kbyff/Syxpro_atajos.7z/file target="_blank" rel="noopener noreferrer" class="btn-shortcuts">
+                DESCARGAR ATAJOS
+            </a>
+        </div>
+
+        <div class="card magenta">
+            <h3>🛠️ CHANGELOG V2.0</h3>
+            <ul class="fix-list">
+                <li><span class="fix-tag">[FIX]</span> Errores de cierre en Android 13/14 corregidos.</li>
+                <li><span class="fix-tag">[FIX]</span> Optimización del consumo de RAM al ejecutar scripts.</li>
+                <li><span class="fix-tag">[FIX]</span> Solucionado el error de vinculación LADB (Universal).</li>
+                <li><span class="fix-tag">[ADD]</span> Nueva interfaz roja Syxpro Dark Edition.</li>
+            </ul>
+        </div>
+
+        <div class="card cyan">
+            <h3>⚠️ REPORTAR BUGS O DUDAS</h3>
+            <p style="font-size: 13px; color: #ccc;">¿Encontraste algún error o tienes una sugerencia para la próxima versión? Únete al grupo de soporte.</p>
+            <a href="https://chat.whatsapp.com/B6IsEGbW4zpF1qyGbMTSvN?mode=gi_t" target="_blank" rel="noopener noreferrer" class="btn-bug">
+                REPORTE DE BUGS Y SUGERENCIAS
+            </a>
+        </div>
+
+        <div class="card yellow">
+            <h3>📖 GUÍA RÁPIDA LADB</h3>
+            <p><span class="step">1.</span> Instala LADB/Brevent | <span class="step">2.</span> copia el comando de activación y ejecutalo en adb | <span class="step">3.</span> Abre Syxpro y tendrás acceso a todo.</p>
+        </div>
+
+        <div class="card" style="border-left: 5px solid #25d366;">
+            <h3>🔔 CANAL DE NOTICIAS</h3>
+            <a href="https://whatsapp.com/channel/0029VbCRfdM3AzNbE3zRoh1Z" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+                ENTRAR AL CANAL OFICIAL
+            </a>
+        </div>
+
+        <a href="https://www.mediafire.com/file/nf9rxvkpgvhvbid/Syxpro2.3.apk/file" target="_blank" rel="noopener noreferrer" class="btn-main">
+            DESCARGAR APK OFICIAL
+        </a>
+
+        <div class="card gold">
+            <h3>☕ APOYA EL PROYECTO</h3>
+            <p style="font-size: 13px; color: #eee; line-height: 1.6;">
+                Desarrollar <b>Syxpro</b> requiere noches sin dormir y mucho esfuerzo para traerte la mejor optimización <b>gratis</b>. Si mi trabajo te ha servido, considera apoyarme con una pequeña donación. ¡Me motiva a seguir mejorando! <span class="heart">❤</span>
+            </p>
+            <a href="TU_LINK_DE_PAYPAL_O_DONACION_AQUI" target="_blank" rel="noopener noreferrer" class="btn-donar">
+               APOYAR PROYECTO
+            </a>
+        </div>
+
+        <p style="color: #333; font-size: 10px; margin-top: 40px;">© 2026 SYXPRO | BY JERZN67</p>
+    </div>
+
+    <script>
+        window.onload = () => {
+            setTimeout(() => {
+                document.getElementById('splash').style.display = 'none';
+                document.getElementById('main').style.opacity = '1';
+            }, 2500);
+        };
+
+        setInterval(() => {
+            let c = document.getElementById('count');
+            let n = parseInt(c.innerText);
+            c.innerText = n + Math.floor(Math.random() * 5) - 2;
+        }, 3000);
+    </script>
+</body>
+</html>
